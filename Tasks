@@ -6,6 +6,26 @@
   -> rq
 -> Create directory structure
 -> Design schema (id, name, image, price)
-- Design application structure
-- Integrate sql
-- Integrate redis
+
+-> Frontend completed
+-> Pushed on github
+-> Xampp setup completed
+
+-> Create and show db on phpmyadmin
+-> Sqlalchemy integration code
+-> Redis integration code
+
+- Setup selenium and beautifulsoup
+- Scrap data from amazon and show on frontend
+- Style scraped data on frontend
+
+- Fetch data from flipkart
+
+- Show data on template
+
+Product schema updated
+id: VARCHAR
+name: TEXT
+price: DECIMAL
+date: DATE
+
