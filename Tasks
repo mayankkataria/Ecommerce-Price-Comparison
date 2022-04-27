@@ -19,7 +19,6 @@
 
 - Store scraped data on sql
 - Store scraped data on redis cache
-
 - Show data on template
 
 Product schema updated
@@ -30,18 +29,22 @@ date: DATE
 
 Status -
 -> Store products on sql db
-- Implement search algo on flipkart
+
+- Store products on sql based on date
+- Store current date products on redis cache and delete old products
 - Implement cron job
-- Store products on redis
 
 - Modify db by inserting 'category' field
 - R&D price trends on amazon and flipkart
-- Choose 10 products to show
+-> Choose 10 products to show
 
 - Implement algorithm (try searching name on both websites and check if product exist on first index or loop through all search results to find specific id)
 - Render common products on frontend
 - Click and open each products
+- Resolve search with spaces
 - Try to show price history of each product
+
+- Facing some issue in fetching data by unique id. Still resolving that issue.
 
 
 Run phpmyadmin from linux ubuntu -
@@ -58,3 +61,10 @@ Products -
 8. APPLE iPhone 13 Pro (Graphite, 128 GB) (B09G91LWTZ, MOBG6VF5FYT935T7)
 9. APPLE 2020 Macbook Pro M1 - 8 GB/256 GB SSD (B08N5WG761, COMFXEKMTGHAGSVX)
 10. OnePlus Nord CE 2 5G (Bahamas Blue, 8GB RAM, 128GB Storage) (B09RG5R5FG, MOBGDBYGG6PPNFD9)
+
+ href="{{ url_for( 'history' , product={name: product['amazon_area'].find('span', 'a-size-medium a-color-base a-text-normal'),
+          price: x.find('span', 'a-offscreen'), image: x.find('img','s-image')} ) }}"
+
+ href="{{ url_for( 'history' , product={name: x.find('span', 'a-size-medium a-color-base a-text-normal'),
+            price: x.find('span', 'a-offscreen'), image: x.find('img','s-image')} ) }}"
+
