@@ -1,15 +1,23 @@
+import datetime
+from enum import unique
 from unicodedata import category
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-# import redis
+import redis
+import json
 import urllib.parse
 from  selenium import webdriver
 from bs4 import BeautifulSoup
+from sqlalchemy import exists
+from sqlalchemy.dialects.postgresql import UUID
+
 app = Flask(__name__)
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Arcgate1!@localhost/Ecommerce'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost:8080/Ecommerce'
 db = SQLAlchemy(app)
+
+redis_client = redis.Redis(host='localhost', port=6379, db=0)
 
 PRODUCTS = [
     {
@@ -91,17 +99,64 @@ PRODUCTS = [
         'flipkart_id': 'MOBGDBYGG6PPNFD9',
         'amazon_area': '',
         'flipkart_area': ''
-    },
+    }
 ]
 
 # r = redis.StrictRedis(url='redis://:root.redislabs.com@:8085/Ecommerce')
 class Product(db.Model):
-    id = db.Column(db.String(50), unique=True, primary_key=True)
+    id = db.Column(UUID(as_uuid=True), unique=True, primary_key=True)
+    amazon_id = db.Column(db.String(50), unique=True)
+    flipkart_id = db.Column(db.String(50), unique=True)
     name = db.Column(db.String(50), nullable=False)
     image_url = db.Column(db.String(50), nullable=False)
-    price = db.Column(db.String(10), nullable=False)
-    category = db.Column(db.String(10), nullable=False)
+    amazon_price = db.Column(db.String(10), nullable=False)
+    flipkart_price = db.Column(db.String(10), nullable=False)
     date = db.Column(db.String(12), nullable=False)
+
+class History(db.Model):
+    id = db.Column(UUID(as_uuid=True), unique=True, primary_key=True)
+    date = db.Column(db.String(12), nullable=False)
+    amazon_price = db.Column(db.String(10), nullable=False)
+    flipkart_price = db.Column(db.String(10), nullable=False)
+
+def addToSql(amazon_id, flipkart_id, name, image_url, amazon_price, flipkart_price, date):
+    print('------------------------------------add')
+    # Add amazon products to db
+    product = Product(
+        amazon_id,
+        flipkart_id,
+        name,
+        image_url,
+        amazon_price,
+        flipkart_price,
+        date
+    )
+    history = History(date, amazon_price, flipkart_price)
+    
+    db.session.add(product)
+    db.session.add(history)
+    db.session.commit()
+
+def updateToSql(amazon_id, flipkart_id, name, image_url, amazon_price, flipkart_price, date):
+    print('-----------------------------------update')
+    # Add amazon products to db
+    product = Product(
+        amazon_id,
+        flipkart_id,
+        name,
+        image_url,
+        amazon_price,
+        flipkart_price,
+        date
+    )
+    history = History(date, amazon_price, flipkart_price)
+    
+    db.session.update(product)
+    db.session.add(history)
+    db.session.commit()
+
+def readFromSql():
+    pass
 
 @app.route('/')
 def products():
@@ -129,21 +184,21 @@ def products():
         https://www.amazon.in/s?k=Vivo+Y21T+%28Midnight+Blue%2C+4GB+RAM%2C+128GB+ROM%29
         """
         # print('--------amazon search-----------', amazon_search)
-        print('---------amazon search--------------', url+amazon_search)
+        # print('---------amazon search--------------', url+amazon_search)
         browserdriver.get(url+amazon_search)
         content = browserdriver.page_source
         # print(content)
         soup = BeautifulSoup(content, 'html.parser')
         search_area = soup.findAll('div', 's-result-item')
-        print('search area 0 i', search_area[2])
-        print('---area find----', search_area[2].attrs['data-asin'])
+        # print('search area 0 i', search_area[2])
+        # print('---area find----', search_area[2].attrs['data-asin'])
         # print('---------search area------------', search_area, '\n')
         for area in search_area:
             # print('------area, id------------', area, product['amazon_id'], '\n')
             if (area.attrs['data-asin'] == product['amazon_id']):
             # if ("B08XGDN3TZ" in area):
             # if (product['amazon_id'] in area):
-                print("++++++++++++++++++++++++")
+                # print("++++++++++++++++++++++++")
                 amazon_area_list.append(area)
                 product.update({'amazon_area': amazon_area_list})
                 break
@@ -165,12 +220,30 @@ def products():
                 flipkart_area_list.append(area)
                 product.update({'flipkart_area': flipkart_area_list})
                 break
+
+        print('------------------------- before product exists')
+        productExists = db.session.query(exists().where(Product.amazon_id==product['amazon_id'])).scalar()
+        prodCount = db.session.query(Product).filter(Product.amazon_id==product['amazon_id']).count()
+        print('product exists: ', prodCount)
+        if (not productExists):
+            # Add amazon products to db
+            addToSql(product['amazon_id'], product['flipkart_id'], product['name'], product['amazon_area'].find('img','s-image'), product['amazon_area'].find('span', 'a-offscreen'), product['flipkart_area'].find('div', '_30jeq3 _1_WHN1'), datetime.datetime.utcnow())
+        else:
+            # update if date is new
+            dateIsNew = db.session.query(exists().where(Product.date.date()==datetime.datetime.utcnow().date())).scalar()
+            print('date is new: ', dateIsNew)
+            if (dateIsNew):
+                updateToSql(product['amazon_id'], product['flipkart_id'], product['name'], product['amazon_area'].find('img','s-image'), product['amazon_area'].find('span', 'a-offscreen'), product['flipkart_area'].find('div', '_30jeq3 _1_WHN1'), datetime.datetime.utcnow())
+
+        redis_client.set("data", json.dumps(product))
+        redisData = redis_client.get("data")
+        print('redis data: ', redisData)
         # print('---------area list-----------', flipkart_area_list)        
-        
+
 
     # search = 'smartphone'
     
-    # ### ------------Scrape on amazon-------------- ###
+    # ### ------------ Scrape on amazon -------------- ###
     # url = 'https://www.amazon.com/s?k='
     # browserdriver.get(url+search)
     # content = browserdriver.page_source
@@ -178,10 +251,6 @@ def products():
     # amazon_search_area = soup.findAll('div', 's-result-item')
     # print('--------------------------------------area------------------------------------------: ', amazon_search_area)
 
-    # # Add amazon products to db
-    # product = Product(id="ID", name="Sample Product", image_url="sample_image_url", price="100", category='amazon', date=datetime.datetime.utcnow())
-    # db.session.add(product)
-    # db.session.commit()
 
     # ### -----------Scrape on flipkart------------- ###
     # url = 'https://www.flipkart.com/search?q='

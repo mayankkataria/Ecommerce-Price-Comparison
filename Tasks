@@ -30,6 +30,8 @@ date: DATE
 Status -
 -> Store products on sql db
 
+Today's tasks
+- Correct styling of prodcuts getting from both platforms
 - Store products on sql based on date
 - Store current date products on redis cache and delete old products
 - Implement cron job
@@ -46,6 +48,9 @@ Status -
 
 - Facing some issue in fetching data by unique id. Still resolving that issue.
 
+- Created new model History
+- Implementing code to read-write data in sql and redis
+- Resolving an 'Unknown column' error
 
 Run phpmyadmin from linux ubuntu -
 ```sudo /opt/lampp/manager-linux-x64.run```
