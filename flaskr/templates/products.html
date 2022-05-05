@@ -26,7 +26,7 @@
         <h1>Amazon</h1>
         <ul class="list-group">
           {% for product in products %}
-            <a href="{{ url_for( 'history' , product={name: product['name'], price: product[amazon_price], image: product['image_url']}) }}" style="text-decoration: none;">
+            <a href="{{ url_for( 'history', product_id=product['amazon_id']) }}" style="text-decoration: none;">
               <li class="list-group-item">
                 <div class="card mb-3" style="max-width: 540px;">
                   <div class="row g-0" style="align-self: center; margin-top: 30px;">
@@ -35,7 +35,7 @@
                     </div>
                   </div>
                       <div class="card-body">
-                        <p class="card-text">{{ product['amazon_price'] }}</p>
+                        <p class="card-text" style="font-weight: 500; font-size: 23px;">{{ product['amazon_price'] }}</p>
                         <h5 class="card-title">{{ product['name'] }}</h5>
                       </div>
                 </div>
@@ -48,7 +48,7 @@
         <h1>Flipkart</h1>
         <ul class="list-group">
           {% for product in products %}
-            <a href="{{ url_for( 'history' , product={name: product['name'], price: product[flipkart_price], image: product['image_url']}) }}" style="text-decoration: none;">
+            <a href="{{ url_for( 'history', product_id=product['flipkart_id']) }}" style="text-decoration: none;">
               <li class="list-group-item">
                 <div class="card mb-3" style="max-width: 540px;">
                   <div class="row g-0" style="align-self: center; margin-top: 30px;">
@@ -57,13 +57,13 @@
                     </div>
                   </div>
                       <div class="card-body">
-                        <h4 class="card-text">{{ product['flipkart_price'] }}</h4>
+                        <h4 class="card-text" style="margin-bottom: 0.5rem; height: 34.5px;">{{ product['flipkart_price'] }}</h4>
                         <h5 class="card-title">{{ product['name'] }}</h5>
                       </div>
                 </div>
               </li>
             </a>
-        {% endfor %}
+          {% endfor %}
         </ul>
       </div>
     </div>

@@ -73,3 +73,33 @@ Products -
  href="{{ url_for( 'history' , product={name: x.find('span', 'a-size-medium a-color-base a-text-normal'),
             price: x.find('span', 'a-offscreen'), image: x.find('img','s-image')} ) }}"
 
+Tasks-
+
+Implement cron job -
+    - R&D cron services and implement one
+    - Fetch data and store in redis everyday
+    - Render data only from redis and never fetch and render (which takes time to load)
+Implement history functionality
+
+Fix adding duplicates in sql products db
+Decide adding amazon_id as primary and relative rather than product_id
+
+Cron job -
+* * * * * env -i bash -c 'export WORKON_HOME=~/.virtualenvs && source /usr/local/bin/virtualenvwrapper.sh && workon env && /opt/lampp/lampp startmysql && wait && cd /home/stonex//Desktop/Training/flask_ecommerce/flaskr && flask fetchtoredis >>scheduled.log 2>&1'
+
+/opt/lampp/lampp startmysql && env -i bash -c 'export WORKON_HOME=~/.virtualenvs && source /usr/local/bin/virtualenvwrapper.sh && workon env && cd /home/stonex//Desktop/Training/flask_ecommerce/flaskr && flask fetchtoredis >>scheduled.log 2>&1'
+
+Rehearse steps -
+Before presentation -
+- Navigate to that date which is not needed (past date) and let the cron job run (to change the redis sync date)
+- Open sql db with xampp
+- Clear sql products data
+- Clear sql history data
+- Keep xampp db opened
+- Stay on redis synced date
+
+During presentation -
+- Show empty sql db's of both models
+- Navigate to current date and show the reflected changes in scheduled logs and sql db (both models)
+- Run flask app and do the tour
+- Navigate to tomorrow and again show the reflected changes in scheduled logs and sql db (both models)
