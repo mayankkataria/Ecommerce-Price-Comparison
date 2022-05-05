@@ -3936,3 +3936,157 @@ sync date:  "2022-05-05 20:34:34.461443"
 format "%Y-%d-%m %H:%M:%S.461443"
 Redis sync date:  2022-05-05
 Today:  2022-05-06 04:08:02.359638
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:39:01.939324
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:09:02.019154
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:40:01.593689
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:10:01.676344
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:41:02.291542
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:11:02.376272
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:42:02.012443
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:12:02.142618
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:43:01.758650
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:13:01.841552
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:44:02.551784
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:14:02.688326
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:45:02.290033
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:15:02.373837
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:46:01.942793
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:16:02.030608
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:47:01.612265
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:17:01.694835
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:48:02.269363
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:18:02.356024
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:49:01.920367
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:19:02.005578
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:50:01.591690
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:20:01.674533
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:51:02.244955
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:21:02.333250
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:52:01.901858
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:22:01.991151
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:53:01.580847
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:23:01.662119
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:54:02.316075
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:24:02.420770
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:55:02.015079
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:25:02.094327
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:56:01.743973
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:26:01.824977
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:57:02.379028
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:27:02.460976
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:58:02.086551
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:28:02.176222
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 22:59:01.811666
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:29:01.895817
+/home/stonex/.virtualenvs/env/lib/python3.8/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+Cron job time -  2022-05-05 23:00:02.522985
+sync date:  "2022-05-05 20:34:34.461443"
+format "%Y-%d-%m %H:%M:%S.461443"
+Redis sync date:  2022-05-05
+Today:  2022-05-06 04:30:02.605578

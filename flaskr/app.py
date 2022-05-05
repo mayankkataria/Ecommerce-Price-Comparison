@@ -12,14 +12,12 @@ from sqlalchemy.ext.declarative import declarative_base
 import dateinfer
 app = Flask(__name__)
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Arcgate1!@localhost/Ecommerce'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost:8080/Ecommerce'
 db = SQLAlchemy(app)
 
 redis_client = redis.Redis(host='localhost', port=6379, db=0)
 
 Base = declarative_base()
-# cron = CronTab(user='root')
 PRODUCTS = [
     {
         'name': 'Vivo Y21T (Midnight Blue, 4GB RAM, 128GB ROM)',
@@ -103,9 +101,7 @@ PRODUCTS = [
     }
 ]
 
-# r = redis.StrictRedis(url='redis://:root.redislabs.com@:8085/Ecommerce')
 class Product(db.Model):
-    # id = db.Column(Integer, unique=True, primary_key=True, autoincrement=True)
     amazon_id = db.Column(db.String(50), unique=True, primary_key=True, nullable=False)
     flipkart_id = db.Column(db.String(50), unique=True)
     name = db.Column(db.String(50), nullable=False)
@@ -116,60 +112,10 @@ class Product(db.Model):
 
 class History(db.Model):
     id = db.Column(db.Integer, unique=True, primary_key=True, autoincrement=True)
-    # print('-------------------------before product id')
     product_id = db.Column(db.String(50), db.ForeignKey('product.amazon_id'), nullable=False)
     date = db.Column(db.String(12), nullable=False)
     amazon_price = db.Column(db.String(10), nullable=False)
     flipkart_price = db.Column(db.String(10), nullable=False)
-
-# def addToSql(amazon_id, flipkart_id, name, image_url, amazon_price, flipkart_price):
-#     print('------------------------------------add')
-#     # Add amazon products to db
-#     product = Product(
-#         amazon_id=amazon_id,
-#         flipkart_id=flipkart_id,
-#         name=name,
-#         image_url=image_url,
-#         amazon_price=amazon_price,
-#         flipkart_price=flipkart_price
-#     )
-
-#     history = History(
-#         date=datetime.datetime.utcnow(),
-#         amazon_price=amazon_price,
-#         flipkart_price=flipkart_price,
-#         product=product
-#     )
-
-#     db.session.add(product)
-#     db.session.add(history)
-#     db.session.commit()
-#     print('-------------------------after product id commit')
-
-# def updateToSql(amazon_id, flipkart_id, name, image_url, amazon_price, flipkart_price):
-#     print('-----------------------------------update')
-#     # Add amazon products to db
-#     product = Product(
-#         amazon_id=amazon_id,
-#         flipkart_id=flipkart_id,
-#         name=name,
-#         image_url=image_url,
-#         amazon_price=amazon_price,
-#         flipkart_price=flipkart_price,
-#     )
-#     print('-----------------------------------after product')
-#     history = History(
-#         date=datetime.datetime.utcnow(),
-#         amazon_price=amazon_price,
-#         flipkart_price=flipkart_price,
-#         product=product
-#     )
-#     print('-----------------------------------after history')
-    
-#     db.session.add(history)
-#     print('-----------------------------------after add')
-#     db.session.commit()
-#     print('-----------------------------------after commit')
 
 def addToSql(amazon_id, flipkart_id, name, image_url, amazon_price, flipkart_price):
     print('Adding data to sql...')
@@ -185,8 +131,6 @@ def addToSql(amazon_id, flipkart_id, name, image_url, amazon_price, flipkart_pri
             flipkart_price=flipkart_price,
         )
         db.session.add(product)
-    # dateExists = db.session.query(exists().where(History.date==datetime.datetime.utcnow().date())).scalar()
-    # dateExists = db.session.query(exists().where(History.date.includes(datetime.datetime.utcnow().date()))).scalar()
     dateExists = db.session.query(History) \
     .filter(History.product_id == amazon_id) \
     .filter(db.extract('month', History.date) == datetime.datetime.today().month,
@@ -264,23 +208,10 @@ def fetchToRedis():
 
                     for area in flipkart_search_area:
                         if (area.find('div', {'data-id': product['flipkart_id']})):
-                            # flipkart_area_list.append(area)
-                            # product.update({'flipkart_area': flipkart_area_list})
                             product['flipkart_price'] = area.find('div', '_30jeq3 _1_WHN1').text
                             productExists = db.session.query(exists().where(Product.amazon_id==product['amazon_id'])).scalar()
-                            # prodCount = db.session.query(Product).filter(Product.amazon_id==product['amazon_id']).count()
 
                             addToSql(product['amazon_id'], product['flipkart_id'], product['name'], product['image_url'], product['amazon_price'], product['flipkart_price'])
-                            
-                            # if (not productExists):
-                            #     # Add amazon products to db
-                            #     addToSql(product['amazon_id'], product['flipkart_id'], product['name'], product['image_url'], product['amazon_price'], product['flipkart_price'])
-                            # else:
-                            #     # update if product already exists date is new
-                            #     # dateIsNew = db.session.query(exists().where(Product.date==datetime.datetime.utcnow().date())).scalar()
-                            #     # print('date is new: ', dateIsNew)
-                            #     # if (dateIsNew):
-                            #     updateToSql(product['amazon_id'], product['flipkart_id'], product['name'], product['image_url'], product['amazon_price'], product['flipkart_price'])
 
                             break
                     break
