@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Made with Flask and Bootstrap, used to compare prices of given products web scraped from Amazon and Flipkart with beautiful soup and selenium, implemented cron job to fetch daily and read/write from redis cache, price history was stored in mysql db**
+Made with Flask and Bootstrap, used to compare prices of given products web scraped from Amazon and Flipkart with beautiful soup and selenium, implemented cron job to fetch daily and read/write from redis cache, price history is stored in mysql db
 
 ### Setup Environment
 - Navigate to ```flaskr``` directory
@@ -21,22 +21,22 @@
 - Create table ```product``` with below query-
 ```
 CREATE TABLE product (
-amazon_id varchar(50) PRIMARY KEY UNIQUE NOT NULL,
-flipkart_id varchar(100) UNIQUE NOT NULL,
-name varchar(100) NOT NULL,
-image_url varchar(100) NOT NULL,
-amazon_price varchar(10) NOT NULL,
-flipkart_price varchar(10) NOT NULL
+    amazon_id varchar(50) PRIMARY KEY UNIQUE NOT NULL,
+    flipkart_id varchar(100) UNIQUE NOT NULL,
+    name varchar(100) NOT NULL,
+    image_url varchar(100) NOT NULL,
+    amazon_price varchar(10) NOT NULL,
+    flipkart_price varchar(10) NOT NULL
 );
 ```
 - Create table ```history``` with below query -
 ```
 CREATE TABLE history (
-id int UNIQUE PRIMARY KEY AUTO_INCREMENT,
-product_id varchar(50) NOT NULL FOREIGN KEY REFERENCES product(amazon_id),
-date varchar(12) NOT NULL,
-amazon_price varchar(10) NOT NULL,
-flipkart_price varchar(10) NOT NULL,
+    id int UNIQUE PRIMARY KEY AUTO_INCREMENT,
+    product_id varchar(50) NOT NULL FOREIGN KEY REFERENCES product(amazon_id),
+    date varchar(12) NOT NULL,
+    amazon_price varchar(10) NOT NULL,
+    flipkart_price varchar(10) NOT NULL,
 );
 ```
 
@@ -49,4 +49,5 @@ Add a cron job to start mysql service, fetch data to redis db on daily basis and
 - Launch app with ```flask run``` in ```flaskr``` directory
 
 ### Working Samples
-[b735e646-6c97-4a6c-93fb-dfddf6b01430.webm](https://user-images.githubusercontent.com/52576282/180850093-b5b261dd-bd68-486a-82b7-17c82bd3eda7.webm)
+[Ecommerce-Price-Comparison.webm](https://user-images.githubusercontent.com/52576282/180851369-dc698bc8-83a8-4a38-8a9e-1a529a2987b2.webm)
+
