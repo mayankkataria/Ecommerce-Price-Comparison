@@ -28,167 +28,62 @@
         </button>
     </nav>
     <div class="container">
-        <div class="card m-3" style="width: 18rem;">
-            <img class="card-img-top" src="{{ url_for('static', filename='sample.png') }}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Apple</h5>
-                <p class="card-text">7.99$</p>
+        <li class="list-group-item">
+            <div class="card mb-3" style="max-width: 540px; margin: auto; margin-top: 50px;">
+              <div class="row g-0" style="align-self: center; margin-top: 30px;">
+                <div class="col-md-4">
+                  <img src="{{product['image_url']}}" alt="">
+                </div>
+              </div>
+                  <div class="card-body">
+                    {% if fromAmazon %}
+                    <h4 class="card-text" style="margin-bottom: 0.5rem; height: 34.5px;">{{product.amazon_price}}</h4>
+                    {% else %}
+                    <h4 class="card-text" style="margin-bottom: 0.5rem; height: 34.5px;">{{product.flipkart_price}}</h4>
+                    {% endif %}
+                    <h5 class="card-title">{{ product['name'] }}</h5>
+                  </div>
             </div>
-        </div>
+          </li>
         <div class="row">
             <div class="col list-col">
                 <h1>Amazon</h1>
                 <ul class="list-group">
+                    {% for entry in history %}
                     <li class="list-group-item">
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">01/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
+                                        <h5 class="card-title">{{ entry.date.strftime('%d/%m/%Y') }}</h5>
+                                        <p class="card-text">{{ entry.amazon_price }}</p>
                                         <a href=""></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="list-group-item">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">02/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">03/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">04/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">05/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">06/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col list-col">
                 <h1>Flipkart</h1>
                 <ul class="list-group">
+                    {% for entry in history %}
                     <li class="list-group-item">
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">01/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
+                                        <h5 class="card-title">{{ entry.date.strftime('%d/%m/%Y') }}</h5>
+                                        <p class="card-text">{{ entry.flipkart_price }}</p>
+                                        <a href=""></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="list-group-item">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">02/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">03/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">04/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">05/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">06/04/2022</h5>
-                                        <p class="card-text">7.99$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
