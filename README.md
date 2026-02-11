@@ -2,7 +2,7 @@
 
 ## Overview
 
-Made with Flask and Bootstrap, used to compare prices of given products web scraped from Amazon and Flipkart with beautiful soup and selenium, implemented cron job to fetch daily and read/write from redis cache, price history is stored in mysql db
+Built with **Python Flask**, this application compares product prices scraped from Amazon and Flipkart via **Beautiful Soup** and **Selenium**. A scheduled **cron job** fetches daily updates, leveraging **Redis** for caching, and historical pricing data is maintained in **MySQL**
 
 ### Setup Environment
 - Navigate to ```flaskr``` directory
